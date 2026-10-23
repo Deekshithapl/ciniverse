@@ -1,0 +1,103 @@
+openapi: 3.0.3
+
+info:
+  title: CineVerse TV Show Discovery API
+  version: 1.0.0
+  description: >
+    API documentation for CineVerse, a student web application that
+    searches television shows using the public TVmaze API.
+
+servers:
+  - url: https://api.tvmaze.com
+    description: Public TVmaze API server
+
+paths:
+  /search/shows:
+    get:
+      summary: Search for television shows
+      description: >
+        Returns television shows matching the supplied search query.
+        Each result includes show information such as its name,
+        rating, language, genres, premiere date, and image.
+      operationId: searchShows
+
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: The name or keyword to search for.
+          schema:
+            type: string
+          example: friends
+
+      responses:
+        "200":
+          description: Search completed successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    score:
+                      type: number
+                      description: Search relevance score.
+                    show:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 431
+                        name:
+                          type: string
+                          example: Friends
+                        language:
+                          type: string
+                          nullable: true
+                          example: English
+                        genres:
+                          type: array
+                          items:
+                            type: string
+                          example:
+                            - Comedy
+                            - Romance
+                        status:
+                          type: string
+                          nullable: true
+                          example: Ended
+                        premiered:
+                          type: string
+                          format: date
+                          nullable: true
+                          example: "1994-09-22"
+                        rating:
+                          type: object
+                          properties:
+                            average:
+                              type: number
+                              nullable: true
+                              example: 8.5
+                        image:
+                          type: object
+                          nullable: true
+                          properties:
+                            medium:
+                              type: string
+                              format: uri
+                              nullable: true
+                            original:
+                              type: string
+                              format: uri
+                              nullable: true
+
+        "400":
+          description: Invalid search request.
+
+        "429":
+          description: Too many requests.
+
+        "500":
+          description: Server error.
+

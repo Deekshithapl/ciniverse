@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>CineVerse | Discover Your Next Movie</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+```
+
+</head>
+
+<body>
+
+```
+<!-- LOGIN PAGE -->
+<section id="loginSection" class="login-page">
+
+    <div class="login-card">
+
+        <h1 class="logo">CINE<span>VERSE</span></h1>
+
+        <p class="tagline">
+            Every movie has a universe.
+        </p>
+
+        <h2>Welcome Back 🎬</h2>
+
+        <p class="subtitle">
+            Sign in to explore your next favourite movie.
+        </p>
+
+        <form id="loginForm" novalidate>
+
+            <label for="email">Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                autocomplete="username"
+                required
+            >
+
+            <small id="emailError" class="error"></small>
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Minimum 6 characters"
+                autocomplete="current-password"
+                required
+            >
+
+            <small id="passwordError" class="error"></small>
+
+            <button type="submit" class="primary-btn">
+                Enter CineVerse →
+            </button>
+
+            <p id="loginMessage" role="status"></p>
+
+        </form>
+
+        <p class="demo-note">
+            Demo login: enter any valid email and a password
+            containing at least 6 characters.
+        </p>
+
+        <p class="footer-text">
+            YOUR NEXT MOVIE ADVENTURE STARTS HERE.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- MOVIE DASHBOARD -->
+<main id="dashboardSection" class="dashboard" hidden>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+
+        <h1 class="logo">CINE<span>VERSE</span></h1>
+
+        <div class="nav-actions">
+            <button id="homeBtn" class="nav-btn">
+                Discover
+            </button>
+
+            <button id="watchlistBtn" class="nav-btn">
+                ♥ Watchlist
+            </button>
+
+            <button id="logoutBtn" class="logout-btn">
+                Logout
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <p class="eyebrow">YOUR PERSONAL MOVIE UNIVERSE</p>
+
+        <h2>
+            Find your next
+            <span>obsession.</span>
+        </h2>
+
+        <p>
+            Explore movies, discover hidden gems,
+            and create your own watchlist.
+        </p>
+
+    </section>
+
+
+    <!-- SEARCH SECTION -->
+    <section class="search-section">
+
+        <h2 id="sectionTitle">Discover Movies</h2>
+
+        <form id="searchForm" class="search-form">
+
+            <input
+                type="search"
+                id="movieSearch"
+                placeholder="Search movies by title..."
+                aria-label="Search movies by title"
+                required
+            >
+
+            <button type="submit" class="primary-btn">
+                Search
+            </button>
+
+        </form>
+
+        <div class="quick-actions">
+
+            <button id="popularBtn" class="secondary-btn">
+                🔥 Popular Movies
+            </button>
+
+            <button id="surpriseBtn" class="secondary-btn">
+                🎲 Surprise Me!
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATUS MESSAGE -->
+    <p id="statusMessage" role="status" aria-live="polite"></p>
+
+
+    <!-- MOVIE CARDS -->
+    <section id="movieGrid" class="movie-grid">
+
+        <div class="empty-state">
+            <h3>🎬 Your next favourite movie awaits.</h3>
+            <p>Search for a movie to begin your adventure.</p>
+        </div>
+
+    </section>
+
+
+    <!-- MOVIE TABLE -->
+    <section class="table-section">
+
+        <h2>Movie Explorer</h2>
+
+        <p class="section-description">
+            Browse the movie information retrieved from the API.
+        </p>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Movie Title</th>
+                        <th>Release Date</th>
+                        <th>Rating</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="movieTableBody">
+
+                    <tr>
+                        <td colspan="5">
+                            Search for a movie to load records.
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p id="recordCount">Movies displayed: 0</p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 CineVerse | Made for movie lovers 🍿</p>
+    </footer>
+
+</main>
+```
+
+</body>
+</html>
